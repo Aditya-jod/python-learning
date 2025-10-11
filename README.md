@@ -6,7 +6,7 @@ Whether you are a complete beginner or looking to refresh your skills, this repo
 
 ---
 
-## 📚 Table of Contents
+## Table of Contents
 
 This curriculum is divided into five main sections, each building upon the last.
 
@@ -45,7 +45,7 @@ This curriculum is divided into five main sections, each building upon the last.
 
 ---
 
-## 🚀 How to Use This Repository
+## How to Use This Repository
 
 1.  **Start from the beginning**: If you're new to Python, it's highly recommended to follow the sections in order.
 2.  **Read the Markdown files**: Each `.md` file contains explanations of a concept.
@@ -56,6 +56,7 @@ This curriculum is divided into five main sections, each building upon the last.
 
 Contributions are welcome! If you find any errors, have suggestions for improvement, or want to add a new topic, please feel free to open an issue or submit a pull request.
 
-## 📄 License
+## License
+
 
 This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
