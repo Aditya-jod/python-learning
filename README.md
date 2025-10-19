@@ -47,10 +47,30 @@ This curriculum is divided into five main sections, each building upon the last.
 
 ## How to Use This Repository
 
-1.  **Start from the beginning**: If you're new to Python, it's highly recommended to follow the sections in order.
-2.  **Read the Markdown files**: Each `.md` file contains explanations of a concept.
-3.  **Run the code**: Type out and run the code examples yourself to build muscle memory. Experiment by changing the code to see what happens.
-4.  **Work on the projects**: The projects in section 5 are designed to help you apply what you've learned in a practical context.
+1.  **Clone the repository**:
+    ```bash
+    git clone https://github.com/Aditya-jod/python-learning.git
+    cd python-learning
+    ```
+
+2.  **Set up a virtual environment** (recommended):
+    ```bash
+    python -m venv .venv
+    # On Windows
+    .venv\Scripts\activate
+    # On macOS/Linux
+    source .venv/bin/activate
+    ```
+
+3.  **Install the required packages**:
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+4.  **Start from the beginning**: If you're new to Python, it's highly recommended to follow the sections in order.
+5.  **Read the Markdown files**: Each `.md` file contains explanations of a concept.
+6.  **Run the code**: Type out and run the code examples yourself to build muscle memory. Experiment by changing the code to see what happens.
+7.  **Work on the projects**: The projects in section 5 are designed to help you apply what you've learned in a practical context.
 
 ## Contributing
 
