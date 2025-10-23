@@ -15,6 +15,8 @@ This curriculum is divided into five main sections, each building upon the last.
 *   [Data Types](./01_Basics/data_types.md)
 *   [Loops (For and While)](./01_Basics/loops.md)
 *   [Functions](./01_Basics/functions.md)
+*   [Conditions](./01_Basics/conditionals.md)
+*   [Strings](./01_Basics/strings.md)
 
 ### 2. Intermediate Concepts
 *   [List Comprehensions](./02_Intermediate/list_comprehensions.md)
