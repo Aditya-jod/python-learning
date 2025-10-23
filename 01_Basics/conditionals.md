@@ -127,5 +127,3 @@ print(grade)
 3. Given three numbers `a`, `b`, `c`, print them in ascending order using conditionals only (no sorting functions).
 
 ---
-
-If you want, I can add solutions in a separate `01_Basics/solutions/conditionals_solutions.md` or keep them in a `solutions/` folder. Let me know your preference.

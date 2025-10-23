@@ -109,5 +109,3 @@ fields = [f.strip() for f in row.split(',')]
 4. `format_currency(n)`: return a string like `'$1,234.56'` for the number `1234.56`.
 
 ---
-
-Want solutions added? I can create `01_Basics/solutions/strings_solutions.md` or include them inline under each exercise. Also, tell me if you'd like additional examples (regex basics, transliteration, Unicode notes).
