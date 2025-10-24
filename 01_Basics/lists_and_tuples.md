@@ -185,5 +185,3 @@ visits[point] = visits.get(point, 0) + 1
 4. Explain (in a sentence) when you'd pick a tuple over a list.
 
 ---
-
-If you want, I can add a `solutions/` directory and put solutions there so learners can try first.

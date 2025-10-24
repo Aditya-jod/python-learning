@@ -175,5 +175,3 @@ merged = {**a, **b}  # {'x':1, 'y':9, 'z':3}
 4. Given a list of dicts with numeric field `score`, find the dict with the maximum score (hint: `max(list_of_dicts, key=lambda x: x['score'])`).
 
 ---
-
-If you'd like, I can add brief solutions to a `01_Basics/solutions/` folder, or keep the exercises separate from the answers so learners can try first.
