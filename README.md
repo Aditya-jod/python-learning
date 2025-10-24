@@ -17,6 +17,8 @@ This curriculum is divided into five main sections, each building upon the last.
 *   [Functions](./01_Basics/functions.md)
 *   [Conditions](./01_Basics/conditionals.md)
 *   [Strings](./01_Basics/strings.md)
+*   [Lists and Tuples](./01_Basics/lists_and_tuples.md)
+*   [Dictionaries](./01_Basics/dictionaries.md)
 
 ### 2. Intermediate Concepts
 *   [List Comprehensions](./02_Intermediate/list_comprehensions.md)
