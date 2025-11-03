@@ -39,10 +39,6 @@ This curriculum is divided into five main sections, each building upon the last.
 *   [Seaborn Introduction](./04_Libraries/seaborn_intro.md)
 *   [Scikit-Learn Basics](./04_Libraries/scikit_learn_basics.md)
 
-### 5. Practical Projects
-*   [Data Cleaning Project](./05_Projects/data_cleaning_project.md)
-*   [Mini Machine Learning Project](./05_Projects/mini_ml_project.md)
-*   [Automation Script](./05_Projects/automation_script.md)
 
 ### Additional Resources
 *   [Helpful Links and Resources](./resources.md)
