@@ -134,27 +134,100 @@ print(f"Model score: {knn.score(X_test, y_test):.2f}")
 
 An accuracy of 1.0 means it got 100% of the predictions right on the test set! For the Iris dataset, this is quite common.
 
-We can also use a **Confusion Matrix** to see *where* it made mistakes (if any).
+---
+
+### A Deeper Look at Evaluation: Beyond Accuracy
+
+Accuracy is great, but it can be misleading, especially if you have an imbalanced dataset (e.g., 99% of your data is one class). That's where other metrics come in.
+
+*   **Precision**: Of all the times the model predicted a certain class, how often was it correct? (Measures false positives).
+*   **Recall**: Of all the actual instances of a class, how many did the model correctly identify? (Measures false negatives).
+*   **F1-Score**: The harmonic mean of Precision and Recall. It gives you a single number that balances both concerns.
+
+Scikit-learn has a handy `classification_report` for this.
 
 ```python
-import seaborn as sns
-import matplotlib.pyplot as plt
-from sklearn.metrics import confusion_matrix
+from sklearn.metrics import classification_report
 
-# Create the confusion matrix
-cm = confusion_matrix(y_test, y_pred)
-
-# Visualize it with a heatmap
-sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', 
-            xticklabels=iris_data.target_names, 
-            yticklabels=iris_data.target_names)
-plt.xlabel('Predicted')
-plt.ylabel('Actual')
-plt.title('Confusion Matrix')
-plt.show()
+# Let's see a full report
+print(classification_report(y_test, y_pred, target_names=iris_data.target_names))
 ```
 
-The diagonal from top-left to bottom-right shows the number of correct predictions for each class. Any numbers off the diagonal represent errors.
+---
+
+### Step 4: Preprocessing Your Data (A Crucial Step)
+
+Many machine learning models perform better when the input features are on a similar scale. For example, if one feature ranges from 0-1 and another from 0-1000, the model might give too much weight to the latter.
+
+**`StandardScaler`** is a common tool for this. It transforms your data so that each feature has a mean of 0 and a standard deviation of 1.
+
+```python
+from sklearn.preprocessing import StandardScaler
+
+# Create a scaler
+scaler = StandardScaler()
+
+# Fit the scaler ONLY on the training data to avoid data leakage
+scaler.fit(X_train)
+
+# Transform both the training and test data
+X_train_scaled = scaler.transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+```
+**Important Note:** You always `fit` on the training data and then `transform` both the training and test sets. This prevents any information from the test set "leaking" into your training process.
+
+---
+
+### Step 5: Using a Pipeline to Streamline Your Workflow
+
+Remembering to scale the training and test sets separately can be tedious and error-prone. Scikit-learn provides a `Pipeline` object to chain these steps together. It's a cleaner, safer, and more professional way to build your workflow.
+
+A pipeline ensures that the exact same steps are followed for both training and prediction.
+
+```python
+from sklearn.pipeline import Pipeline
+from sklearn.linear_model import LogisticRegression
+
+# Create a pipeline with two steps:
+# 1. 'scaler': An instance of StandardScaler
+# 2. 'classifier': An instance of a model (let's try a different one!)
+pipe = Pipeline([
+    ('scaler', StandardScaler()),
+    ('classifier', LogisticRegression())
+])
+
+# Now, we can treat the entire pipeline as a single model!
+# It will automatically scale the data before training the classifier.
+pipe.fit(X_train, y_train)
+
+# Evaluate the entire pipeline
+print(f"Pipeline Score: {pipe.score(X_test, y_test):.2f}")
+```
+Look how clean that is! The pipeline handles the scaling and training in one go. When you call `pipe.predict()`, it automatically scales the new data before making a prediction.
+
+---
+
+### Step 6: Saving and Loading Your Model
+
+Once you have a trained model (or pipeline) that you're happy with, you don't want to have to retrain it every time. You can save it to a file. The common way to do this is with the `joblib` library.
+
+```python
+import joblib
+
+# Save the entire trained pipeline to a file
+joblib.dump(pipe, 'iris_model.joblib')
+
+# ... later, in another script or application ...
+
+# Load the model from the file
+loaded_pipe = joblib.load('iris_model.joblib')
+
+# You can now use the loaded model to make predictions on new data
+new_flower = [[5.9, 3.0, 5.1, 1.8]] # An example of a new, unseen flower
+prediction = loaded_pipe.predict(new_flower)
+
+print(f"Prediction for new flower: {iris_data.target_names[prediction][0]}")
+```
 
 ---
 
@@ -162,8 +235,11 @@ The diagonal from top-left to bottom-right shows the number of correct predictio
 
 You've just completed an end-to-end machine learning project! From here, you can explore:
 
-*   **Other Models**: Try swapping `KNeighborsClassifier` with another model like `LogisticRegression` or `SVC` from `sklearn.linear_model` and `sklearn.svm`. The API is the same!
-*   **Preprocessing**: Sometimes your data needs to be scaled. Check out `StandardScaler` from `sklearn.preprocessing`. You would `fit_transform` it on your training data and `transform` it on your test data.
+*   **Hyperparameter Tuning**: Most models have "hyperparameters" you can tune (like the `n_neighbors` in KNN). Check out `GridSearchCV` to find the best settings automatically.
+*   **Cross-Validation**: A more robust way to evaluate your model than a single train-test split. See `cross_val_score`.
+*   **Different Problem Types**:
+    *   **Regression**: Predicting a continuous value (e.g., house prices). Try models like `LinearRegression` or `RandomForestRegressor`.
+    *   **Clustering**: Grouping unlabeled data (e.g., customer segmentation). Try `KMeans`.
 *   **More Complex Projects**: Move on to the projects in the `05_Projects` folder to apply these skills to different problems.
 
 Machine learning is a vast field, but Scikit-learn gives you a solid and consistent foundation to build upon. Happy coding!
