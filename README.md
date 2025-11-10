@@ -41,7 +41,7 @@ This curriculum is divided into five main sections, each building upon the last.
 
 
 ### Additional Resources
-*   [Helpful Links and Resources](./resources.md)
+*   [Helpful Links and Resources](./Additional resources/resources.md)
 
 ---
 
