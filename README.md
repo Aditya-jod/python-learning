@@ -40,9 +40,6 @@ This curriculum is divided into five main sections, each building upon the last.
 *   [Scikit-Learn Basics](./04_Libraries/scikit_learn_basics.md)
 
 
-### Additional Resources
-*   [Helpful Links and Resources](./Additional resources/resources.md)
-
 ---
 
 ## How to Use This Repository
